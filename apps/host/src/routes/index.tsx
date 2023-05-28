@@ -5,7 +5,7 @@ import { Link } from '@builder.io/qwik-city';
 export default component$(() => {
   return (
     <div>
-      <h1>I'm the Host</h1>
+      <h1 class="text-slate-900 text-2xl text-center p-20">I'm the Host</h1>
     </div>
   );
 });
