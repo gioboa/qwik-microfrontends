@@ -5,7 +5,7 @@ import { Button } from '@qwik-microfrontends/ui';
 export default component$(() => {
   return (
     <div>
-      <Button text="I'm the products" />
+      <Button text="I'm the products" onClick$={() => console.log('click')} />
     </div>
   );
 });
