@@ -32,6 +32,7 @@
     "typescript": "~5.0.4",
     "undici": "^5.22.1",
     "vite": "^4.3.9",
+    "vite-plugin-dts": "~1.7.1",
     "vite-plugin-eslint": "^1.8.1",
     "vite-tsconfig-paths": "~4.2.0",
     "vitest": "^0.31.1"
