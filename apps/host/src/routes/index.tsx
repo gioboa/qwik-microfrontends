@@ -1,21 +1,14 @@
 import { component$ } from '@builder.io/qwik';
-import type { DocumentHead } from '@builder.io/qwik-city';
 import { Button } from '@qwik-microfrontends/ui';
+import { remotes } from '../../../../shared/remotes';
+import RemoteMfe from '../components/remote-mfe/remote-mfe';
 
 export default component$(() => {
   return (
     <div>
-      <Button text="I'm the Host" onClick$={() => console.log('click')} />
+      <Button text="I'm the Host" onClick$={() => console.log('host!!')} />
+      <RemoteMfe remote={remotes.home} removeLoader={true} />
+      <a href="/checkout/payment/?abc=123">checkout</a>
     </div>
   );
 });
-
-export const head: DocumentHead = {
-  title: 'Welcome to Qwik',
-  meta: [
-    {
-      name: 'description',
-      content: 'Qwik site description',
-    },
-  ],
-};

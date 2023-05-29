@@ -1,33 +1,20 @@
 import { qwikCity } from '@builder.io/qwik-city/vite';
 import { qwikVite } from '@builder.io/qwik/optimizer';
 import { qwikNxVite } from 'qwik-nx/plugins';
-import { ServerOptions, defineConfig } from 'vite';
+import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import { remotes } from '../../shared/remotes';
-
-let proxy: ServerOptions['proxy'] = {};
-Object.values(remotes).forEach(({ name, url }) => {
-  proxy![`^/${name}/.*`] = {
-    target: url.replace(`${name}/`, ''),
-    changeOrigin: true,
-    rewrite: (path) =>
-      path.indexOf(`/${name}/build/`) === 0
-        ? path.replace(`/${name}`, '')
-        : path,
-  };
-});
 
 export default defineConfig({
-  cacheDir: '../../node_modules/.vite/apps/host',
+  cacheDir: '../../node_modules/.vite/apps/home',
   plugins: [
     qwikNxVite(),
-    qwikCity(),
+    qwikCity({ basePathname: '/home/' } as any),
     qwikVite({
       client: {
-        outDir: '../../dist/apps/host/client',
+        outDir: '../../dist/apps/home/client',
       },
       ssr: {
-        outDir: '../../dist/apps/host/server',
+        outDir: '../../dist/apps/home/server',
       },
     }),
     tsconfigPaths({ root: '../../' }),
@@ -37,7 +24,6 @@ export default defineConfig({
       // Allow serving files from the project root
       allow: ['../../'],
     },
-    proxy,
   },
   preview: {
     headers: {

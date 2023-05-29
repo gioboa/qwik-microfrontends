@@ -1,14 +1,14 @@
 {
-  "name": "products",
+  "name": "checkout",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "apps/products/src",
+  "sourceRoot": "apps/checkout/src",
   "targets": {
     "build": {
       "executor": "qwik-nx:build",
       "options": {
-        "runSequence": ["products:build.client", "products:build.ssr"],
-        "outputPath": "dist/apps/products"
+        "runSequence": ["checkout:build.client", "checkout:build.ssr"],
+        "outputPath": "dist/apps/checkout"
       },
       "configurations": {
         "preview": {}
@@ -17,15 +17,15 @@
     "build.client": {
       "executor": "@nx/vite:build",
       "options": {
-        "outputPath": "dist/apps/products",
-        "configFile": "apps/products/vite.config.ts"
+        "outputPath": "dist/apps/checkout",
+        "configFile": "apps/checkout/vite.config.ts"
       }
     },
     "build.ssr": {
       "executor": "@nx/vite:build",
       "defaultConfiguration": "preview",
       "options": {
-        "outputPath": "dist/apps/products"
+        "outputPath": "dist/apps/checkout"
       },
       "configurations": {
         "preview": {
@@ -37,38 +37,38 @@
     "preview": {
       "executor": "@nx/vite:preview-server",
       "options": {
-        "buildTarget": "products:build",
-        "port": 5174
+        "buildTarget": "checkout:build",
+        "port": 5175
       }
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["../../coverage/apps/products"],
+      "outputs": ["../../coverage/apps/checkout"],
       "options": {
         "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/apps/products"
+        "reportsDirectory": "../../coverage/apps/checkout"
       }
     },
     "serve": {
       "executor": "@nx/vite:dev-server",
       "options": {
-        "buildTarget": "products:build.client",
+        "buildTarget": "checkout:build.client",
         "mode": "ssr",
-        "port": 5174
+        "port": 5175
       }
     },
     "serve.debug": {
       "executor": "nx:run-commands",
       "options": {
         "command": "node --inspect-brk ../../node_modules/vite/bin/vite.js --mode ssr --force",
-        "cwd": "apps/products"
+        "cwd": "apps/checkout"
       }
     },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/products/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/checkout/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },

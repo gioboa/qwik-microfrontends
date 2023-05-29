@@ -1,20 +1,20 @@
-import { qwikVite } from '@builder.io/qwik/optimizer';
 import { qwikCity } from '@builder.io/qwik-city/vite';
+import { qwikVite } from '@builder.io/qwik/optimizer';
+import { qwikNxVite } from 'qwik-nx/plugins';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import { qwikNxVite } from 'qwik-nx/plugins';
 
 export default defineConfig({
-  cacheDir: '../../node_modules/.vite/apps/products',
+  cacheDir: '../../node_modules/.vite/apps/checkout',
   plugins: [
     qwikNxVite(),
-    qwikCity(),
+    qwikCity({ basePathname: `/checkout/` } as any),
     qwikVite({
       client: {
-        outDir: '../../dist/apps/products/client',
+        outDir: '../../dist/apps/checkout/client',
       },
       ssr: {
-        outDir: '../../dist/apps/products/server',
+        outDir: '../../dist/apps/checkout/server',
       },
     }),
     tsconfigPaths({ root: '../../' }),
