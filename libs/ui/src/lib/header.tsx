@@ -3,7 +3,7 @@ import { component$ } from '@builder.io/qwik';
 export const Header = component$(() => {
   return (
     <nav class="bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-600">
-      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <div class="flex flex-wrap items-center justify-between mx-auto p-4">
         <svg
           viewBox="0 0 167 53"
           fill="none"

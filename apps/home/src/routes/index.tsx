@@ -1,37 +1,21 @@
-import { component$, useSignal } from '@builder.io/qwik';
+import { component$ } from '@builder.io/qwik';
 import { routeLoader$ } from '@builder.io/qwik-city';
-import { Button } from '@qwik-microfrontends/ui';
+import { Product } from '@qwik-microfrontends/ui';
+import { products } from 'shared/constants';
 
 const productsLoader = routeLoader$(async () => {
-  const response = await fetch('https://fakestoreapi.com/products');
-  // console.log(await response.json());
-  return [];
+  // const response = await fetch('https://fakestoreapi.com/products');
+  // return (await response.json()) as ProductType[];
+  return products;
 });
 
 export default component$(() => {
   const productsSignal = productsLoader();
-  const counterSignal = useSignal(0);
   return (
-    <div>
-      <a href="/checkout/payment/">/checkout/payment</a>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <span class="pl-4">{counterSignal.value}</span>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <Button
-        text="I'm the home"
-        onClick$={() => {
-          counterSignal.value += 1;
-          console.log('home!!');
-        }}
-      />
+    <div class="flex flex-wrap" style="justify-content: space-between">
+      {productsSignal.value.map((p) => (
+        <Product product={p} />
+      ))}
     </div>
   );
 });

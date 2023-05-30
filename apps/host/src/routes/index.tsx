@@ -1,13 +1,26 @@
-import { component$ } from '@builder.io/qwik';
-import { Button } from '@qwik-microfrontends/ui';
+import { $, component$, useOnDocument, useSignal } from '@builder.io/qwik';
+import { CartCounter } from '@qwik-microfrontends/ui';
+import { CART_QUANTITIES_CHANGED_EVENT } from 'shared/constants';
 import { remotes } from '../../../../shared/remotes';
 import RemoteMfe from '../components/remote-mfe/remote-mfe';
 
 export default component$(() => {
+  const cartQtySignal = useSignal(0);
+
+  useOnDocument(
+    CART_QUANTITIES_CHANGED_EVENT,
+    $((event) => {
+      console.log('Cart ', (event as CustomEvent).detail.qty);
+      cartQtySignal.value += (event as CustomEvent).detail.qty;
+    })
+  );
+
   return (
-    <div>
-      <Button text="I'm the Host" onClick$={() => console.log('host!!')} />
+    <>
+      <div class="flex" style="justify-content: flex-end">
+        <CartCounter count={cartQtySignal.value} />
+      </div>
       <RemoteMfe remote={remotes.home} removeLoader={true} />
-    </div>
+    </>
   );
 });
