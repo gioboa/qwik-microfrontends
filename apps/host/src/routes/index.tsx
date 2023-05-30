@@ -8,7 +8,6 @@ export default component$(() => {
     <div>
       <Button text="I'm the Host" onClick$={() => console.log('host!!')} />
       <RemoteMfe remote={remotes.home} removeLoader={true} />
-      <a href="/checkout/payment/?abc=123">checkout</a>
     </div>
   );
 });
