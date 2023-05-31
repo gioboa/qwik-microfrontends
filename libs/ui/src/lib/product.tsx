@@ -18,7 +18,7 @@ type Props = {
 
 export const Product = component$<Props>(({ product }) => {
   return (
-    <div class="w-full w-[300px] rounded-lg shadow bg-gray-800 border border-gray-700 m-4">
+    <div class="w-[300px] rounded-lg shadow bg-gray-800 border border-gray-700 m-4">
       <a href="#">
         <img
           class="p-8 rounded-t-lg cover w-[300px] h-[300px] mx-auto"

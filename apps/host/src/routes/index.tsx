@@ -17,7 +17,7 @@ export default component$(() => {
 
   return (
     <>
-      <div class="flex" style="justify-content: flex-end">
+      <div class="flex mt-12" style="justify-content: flex-end">
         <CartCounter count={cartQtySignal.value} />
       </div>
       <RemoteMfe remote={remotes.home} removeLoader={true} />

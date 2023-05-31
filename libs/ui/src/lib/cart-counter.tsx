@@ -6,8 +6,8 @@ type Props = {
 
 export const CartCounter = component$<Props>(({ count }) => {
   return (
-    <button
-      type="button"
+    <a
+      href="/checkout/summary/"
       class="flex items-center text-white w-[170px] bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
     >
       <svg
@@ -26,6 +26,6 @@ export const CartCounter = component$<Props>(({ count }) => {
         />
       </svg>
       <span class="px-2 text-lg">Cart ({count})</span>
-    </button>
+    </a>
   );
 });
