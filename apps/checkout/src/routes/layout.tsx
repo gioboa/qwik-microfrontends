@@ -24,7 +24,7 @@ export default component$(() => {
   return (
     <>
       <Header />
-      <main class="min-h-screen mt-18 pt-10">
+      <main class="min-h-screen mt-18 pt-10 bg-slate-900">
         <Slot />
       </main>
       <Footer />
