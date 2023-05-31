@@ -30,7 +30,7 @@ export const Product = component$<Props>(({ product }) => {
       </a>
       <div class="px-5 pb-5">
         <a href="#">
-          <h5 class="text-xl font-semibold tracking-tight text-black">
+          <h5 class="text-xl font-semibold tracking-tight text-black truncate">
             {product.title}
           </h5>
         </a>
