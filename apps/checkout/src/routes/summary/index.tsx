@@ -1,8 +1,6 @@
-import { component$, useContext } from '@builder.io/qwik';
-import { CheckoutContext } from '../layout';
+import { component$ } from '@builder.io/qwik';
 
 export default component$(() => {
-  const checkoutState = useContext(CheckoutContext);
   return (
     <section class="h-screen bg-slate-900 py-12 sm:py-16 lg:py-20">
       <div class="mx-auto px-4 sm:px-6 lg:px-8">

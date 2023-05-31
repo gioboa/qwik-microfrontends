@@ -10,7 +10,7 @@ export default component$(() => {
   useOnDocument(
     CART_QUANTITIES_CHANGED_EVENT,
     $((event) => {
-      console.log('Cart ', (event as CustomEvent).detail.qty);
+      console.log('CART_QUANTITIES_CHANGED_EVENT');
       cartQtySignal.value += (event as CustomEvent).detail.qty;
     })
   );
