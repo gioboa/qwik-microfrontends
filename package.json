@@ -2,7 +2,9 @@
   "name": "@qwik-microfrontends/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "serve:all": "npx nx run-many --parallel --target=serve --projects=host,home,checkout"
+  },
   "private": true,
   "dependencies": {
     "qwik-nx": "1.0.3"
