@@ -18,7 +18,7 @@ type Props = {
 
 export const Product = component$<Props>(({ product }) => {
   return (
-    <div class="w-[300px] rounded-lg shadow bg-gray-800 border border-gray-700 m-4">
+    <div class="w-[300px] rounded-lg shadow bg-white border border-gray-700 m-4">
       <a href="#">
         <img
           class="p-8 rounded-t-lg cover w-[300px] h-[300px] mx-auto"
@@ -30,7 +30,7 @@ export const Product = component$<Props>(({ product }) => {
       </a>
       <div class="px-5 pb-5">
         <a href="#">
-          <h5 class="text-xl font-semibold tracking-tight dark:text-white">
+          <h5 class="text-xl font-semibold tracking-tight text-black">
             {product.title}
           </h5>
         </a>
@@ -90,7 +90,7 @@ export const Product = component$<Props>(({ product }) => {
           </span>
         </div>
         <div class="flex items-center justify-between">
-          <span class="text-3xl font-bold text-white">{product.price}</span>
+          <span class="text-3xl font-bold text-black">{product.price}</span>
           <Button
             text="Add to cart"
             onClick$={() => {

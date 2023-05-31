@@ -11,7 +11,7 @@ export default component$(() => {
           <h1 class="text-2xl font-semibold text-white">Payments</h1>
         </div>
         <div class="mx-auto mt-8 max-w-2xl md:mt-12">
-          <div class="bg-gray-50 p-4">
+          <div class="bg-white  p-4">
             <p class="text-xl font-medium">Payment Details</p>
             <p class="text-gray-400">
               Complete your order by providing your payment details.
