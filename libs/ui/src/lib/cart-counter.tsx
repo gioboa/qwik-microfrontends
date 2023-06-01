@@ -13,7 +13,7 @@ export const CartCounter = component$<Props>(({ count }) => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         style="margin: auto"
-        class="h-8 w-8"
+        class="h-6 w-6"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
