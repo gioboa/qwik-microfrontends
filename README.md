@@ -22,11 +22,11 @@ port: 5174
 
 port: 5175
 
-/checkout/summary/
+#### route: /checkout/summary/
 
 ![summary](docs/summary.png)
 
-/checkout/payment/
+#### route: /checkout/payment/
 
 ![payment](docs/payment.png)
 
