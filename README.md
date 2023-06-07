@@ -4,9 +4,41 @@
 
 node >= v18.10.0 required
 
+## The project contains 3 apps
+
+### Host
+
+port: 5173
+
+![host](docs/host.png)
+
+### Home ( horizontal split )
+
+port: 5174
+
+![home](docs/home.png)
+
+### Checkout ( vertical split with multiple routes )
+
+port: 5175
+
+/checkout/summary/
+
+![summary](docs/summary.png)
+
+/checkout/payment/
+
+![payment](docs/payment.png)
+
 ## Startup project
 
 From the root install all the dependencies `pnpm i`
+
+## Preview server ( run in different terminals )
+
+- `npm run preview:host`
+- `npm run preview:home`
+- `npm run preview:checkout`
 
 ## Development server
 
