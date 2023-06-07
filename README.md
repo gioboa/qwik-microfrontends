@@ -4,7 +4,7 @@
 
 node >= v18.10.0 required
 
-## The project contains 3 apps
+## The project contains 3 apps ( Host, Home, Checkout )
 
 ### Host
 
