@@ -17,6 +17,7 @@ import Root from './root';
 const base = '/home/build/';
 
 export default function (opts: RenderToStreamOptions) {
+  const url = new URL(opts.serverData!.url);
   return renderToStream(<Root />, {
     manifest,
     base,
@@ -35,7 +36,7 @@ export default function (opts: RenderToStreamOptions) {
     },
     containerTagName: 'div',
     qwikLoader: {
-      include: 'always',
+      include: url.searchParams.get('loader') ? 'never' : 'auto',
     },
   });
 }

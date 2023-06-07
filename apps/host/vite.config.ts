@@ -72,12 +72,7 @@ const getProxy = (isDev: boolean) => {
                 res.write(rawHtml);
               } else {
                 res.setHeader('Content-Type', 'text/html');
-                const fixedHtmlObj = fixRemoteHTMLInDevMode(
-                  rawHtml,
-                  '',
-                  false,
-                  isDev
-                );
+                const fixedHtmlObj = fixRemoteHTMLInDevMode(rawHtml, '', isDev);
                 res.write(fixedHtmlObj.html);
               }
               res.end();

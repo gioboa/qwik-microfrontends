@@ -17,6 +17,10 @@ export default component$(({ remote, removeLoader = false }: Props) => {
   const decoder = new TextDecoder();
   const getSSRStreamFunction =
     (remoteUrl: string) => async (stream: StreamWriter) => {
+      const _remoteUrl = new URL(remoteUrl);
+      if (removeLoader) {
+        _remoteUrl.searchParams.append('loader', 'false');
+      }
       const reader = (
         await fetch(remoteUrl, { headers: { accept: 'text/html' } })
       ).body!.getReader();
@@ -24,12 +28,9 @@ export default component$(({ remote, removeLoader = false }: Props) => {
       let base = '';
       while (!fragmentChunk.done) {
         const rawHtml = decoder.decode(fragmentChunk.value);
-        const fixedHtmlObj = fixRemoteHTMLInDevMode(
-          rawHtml,
-          base,
-          removeLoader
-        );
+        const fixedHtmlObj = fixRemoteHTMLInDevMode(rawHtml, base);
         base = fixedHtmlObj.base;
+        console.log(fixedHtmlObj.html);
         stream.write(fixedHtmlObj.html);
         fragmentChunk = await reader.read();
       }

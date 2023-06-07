@@ -4,7 +4,6 @@
 export const fixRemoteHTMLInDevMode = (
   rawHtml: string,
   base = '',
-  removeLoader: boolean,
   isDev?: boolean
 ): { html: string; base: string } => {
   let html = rawHtml;
@@ -24,16 +23,6 @@ export const fixRemoteHTMLInDevMode = (
     });
   }
   html = fixErroredHostDefinition(html, base);
-  if (removeLoader) {
-    html = html.replace(
-      /<script id="qwikloader">[\s\S]*?<\/script\b[^>]*>/gm,
-      ''
-    );
-    html = html.replace(
-      '<script>window.qwikevents.push',
-      '<script>window.qwikevents||=[];window.qwikevents.push'
-    );
-  }
   return { html, base };
 };
 
