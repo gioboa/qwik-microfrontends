@@ -22,7 +22,7 @@ export default component$(({ remote, removeLoader = false }: Props) => {
         _remoteUrl.searchParams.append('loader', 'false');
       }
       const reader = (
-        await fetch(remoteUrl, { headers: { accept: 'text/html' } })
+        await fetch(_remoteUrl, { headers: { accept: 'text/html' } })
       ).body!.getReader();
       let fragmentChunk = await reader.read();
       let base = '';
