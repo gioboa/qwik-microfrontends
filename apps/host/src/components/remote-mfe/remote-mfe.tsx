@@ -30,7 +30,6 @@ export default component$(({ remote, removeLoader = false }: Props) => {
         const rawHtml = decoder.decode(fragmentChunk.value);
         const fixedHtmlObj = fixRemoteHTMLInDevMode(rawHtml, base);
         base = fixedHtmlObj.base;
-        console.log(fixedHtmlObj.html);
         stream.write(fixedHtmlObj.html);
         fragmentChunk = await reader.read();
       }
