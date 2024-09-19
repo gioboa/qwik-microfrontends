@@ -34,14 +34,12 @@ port: 5175
 
 From the root install all the dependencies `pnpm i`
 
-## Preview server ( run in different terminals )
+## Preview server
 
-- `npm run preview:host`
-- `npm run preview:home`
-- `npm run preview:checkout`
+- `npm run preview`
 
 ## Development server
 
-Run `npm run serve:all` to run a dev server for each application.
+Run `npm run dev` to run a dev server for each application.
 
 At http://localhost:5173 you can open the host and see the working application.

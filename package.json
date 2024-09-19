@@ -1,45 +1,27 @@
 {
-  "name": "@qwik-microfrontends/source",
-  "version": "0.0.0",
-  "license": "MIT",
-  "scripts": {
-    "serve:all": "npx nx run-many --parallel --target=serve --projects=host,home,checkout",
-    "preview:host": "npx nx run host:preview",
-    "preview:home": "npx nx run home:preview",
-    "preview:checkout": "npx nx run checkout:preview"
-  },
-  "private": true,
-  "dependencies": {
-    "qwik-nx": "2.0.1"
-  },
-  "devDependencies": {
-    "@builder.io/qwik": "1.2.17",
-    "@builder.io/qwik-city": "1.2.17",
-    "@nx/eslint-plugin": "17.0.3",
-    "@nx/js": "17.0.3",
-    "@nx/linter": "17.0.3",
-    "@nx/vite": "17.0.3",
-    "@nx/workspace": "17.0.3",
-    "@typescript-eslint/eslint-plugin": "^6.10.0",
-    "@typescript-eslint/parser": "^6.10.0",
-    "@vitest/ui": "^0.34.6",
-    "autoprefixer": "~10.4.16",
-    "eslint": "~8.53.0",
-    "eslint-config-prettier": "9.0.0",
-    "eslint-plugin-qwik": "1.2.17",
-    "jsdom": "~22.1.0",
-    "node-fetch": "~3.3.2",
-    "nx": "17.0.3",
-    "postcss": "~8.4.31",
-    "prettier": "^3.0.3",
-    "sass": "~1.69.5",
-    "tailwindcss": "~3.3.5",
-    "typescript": "~5.2.2",
-    "undici": "^5.27.2",
-    "vite": "^4.5.0",
-    "vite-plugin-dts": "~3.6.3",
-    "vite-plugin-eslint": "^1.8.1",
-    "vite-tsconfig-paths": "~4.2.1",
-    "vitest": "^0.34.6"
-  }
+	"name": "react-microfrontend-demo",
+	"version": "1.0.0",
+	"description": "Vite + Module Federation is now possible",
+	"main": "index.js",
+	"scripts": {
+		"install:deps": "pnpm --prefix ./host install && pnpm --prefix ./home install",
+		"dev": "run-p dev:*",
+		"dev:host": "pnpm --prefix ./host run dev",
+		"dev:home": "pnpm --prefix ./home run dev",
+		"dev:checkout": "pnpm --prefix ./checkout run dev",
+		"preview": "run-p preview:*",
+		"preview:host": "pnpm sleep5s && pnpm sleep5s && pnpm --prefix ./host run preview",
+		"preview:home": "pnpm --prefix ./home run preview",
+		"preview:checkout": "pnpm sleep5s && pnpm --prefix ./checkout run preview",
+		"sleep5s": "node -e 'setTimeout(() => process.exit(0), 5000)'"
+	},
+	"author": {
+		"name": "Giorgio Boa",
+		"email": "giorgiob.boa@gmail.com",
+		"url": "https://github.com/gioboa"
+	},
+	"license": "ISC",
+	"dependencies": {
+		"npm-run-all": "^4.1.5"
+	}
 }
