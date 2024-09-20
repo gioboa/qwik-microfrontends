@@ -1,5 +1,5 @@
 {
-	"name": "react-microfrontend-demo",
+	"name": "qwik-microfrontends",
 	"version": "1.0.0",
 	"description": "Vite + Module Federation is now possible",
 	"main": "index.js",
