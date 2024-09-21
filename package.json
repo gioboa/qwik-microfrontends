@@ -1,10 +1,10 @@
 {
-	"name": "react-microfrontend-demo",
+	"name": "qwik-microfrontends",
 	"version": "1.0.0",
 	"description": "Vite + Module Federation is now possible",
 	"main": "index.js",
 	"scripts": {
-		"install:deps": "pnpm --prefix ./host install && pnpm --prefix ./home install",
+		"install:deps": "pnpm --prefix ./host install && pnpm --prefix ./home install && pnpm --prefix ./checkout install",
 		"dev": "run-p dev:*",
 		"dev:host": "pnpm --prefix ./host run dev",
 		"dev:home": "pnpm --prefix ./home run dev",
